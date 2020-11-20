@@ -38,7 +38,7 @@ def posts():
         db.session.commit()
         return redirect('/posts')
     else:
-        all_posts = BlogPost.query.order_by(BlogPost.date_posted).all()
+        all_posts = BlogPost.query.order_by(BlogPost.date_posted.desc()).all()
         return render_template('posts.html', posts=all_posts)
 
 
